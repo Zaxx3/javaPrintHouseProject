@@ -1,0 +1,2 @@
+Expenses of the printing house come out to be: 104000.0
+Revenue of the printing house is: 80.0
