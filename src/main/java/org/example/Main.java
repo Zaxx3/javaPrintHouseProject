@@ -3,16 +3,18 @@ package org.example;
 
 
 
-import org.example.models.Issue;
-import org.example.models.Manager;
-import org.example.models.Operator;
-import org.example.models.PrintingMachine;
+import org.example.models.*;
 import org.example.services.PrintingHouse;
+import org.example.exceptions.InvalidPageSizeException;
+import org.example.exceptions.InvalidPaperTypeException;
+import org.example.exceptions.InvalidPrintTypeException;
+import org.example.exceptions.NotEnoughPaperException;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 
+import java.io.IOException;
 import java.util.*;
 
 
@@ -94,8 +96,14 @@ public class Main{
             writer.write(revenue);
             writer.close();
 
-        }catch (Exception e){
+        }catch (FileNotFoundException e) {
             System.out.println("File error occurred");
+            e.printStackTrace();
+        }catch (InvalidPageSizeException | InvalidPaperTypeException | InvalidPrintTypeException | NotEnoughPaperException e) {
+            System.out.println("Printing error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }catch (IOException e) {
+            System.out.println("File writing error occurred");
             e.printStackTrace();
         }
 

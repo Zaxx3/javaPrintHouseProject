@@ -1,10 +1,9 @@
 package org.example.services;
 
-import org.example.models.Issue;
-import org.example.models.Manager;
-import org.example.models.Operator;
-import org.example.models.PrintingMachine;
-import org.example.models.Issue;
+import org.example.exceptions.InvalidPrintTypeException;
+import org.example.exceptions.NotEnoughPaperException;
+import org.example.models.*;
+
 
 import java.util.*;
 
@@ -88,10 +87,10 @@ public class PrintingHouse {
                         printingMachinesList.get(i).addIssue(issue.getTitle(), issue.getAmount(), pagerPerIssue);
 
                     } else if (i + 1 == printingMachines) {
-                        throw new Error("Invalid print type");
+                        throw new InvalidPrintTypeException("Invalid print type for color");
                     }
                 } else if (i + 1 == printingMachines) {
-                    throw new Error("Not enough paper in machine");
+                    throw new NotEnoughPaperException("Not enough paper in machine");
                 }
 
 

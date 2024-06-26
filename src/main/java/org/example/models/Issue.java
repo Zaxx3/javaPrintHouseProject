@@ -1,5 +1,8 @@
 package org.example.models;
 
+import org.example.exceptions.InvalidPageSizeException;
+import org.example.exceptions.InvalidPaperTypeException;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,7 +42,7 @@ public class Issue{
         if(pageSizeTable.contains(pageSize)){
             this.pageSize = pageSize;
         }else{
-            throw new Error("Invalid Page Size");
+            throw new InvalidPageSizeException("Invalid Page Size: "+pageSize);
         }
     }
 
@@ -47,7 +50,7 @@ public class Issue{
         if(paperTypeTable.contains(paperType)){
             this.paperType = paperType;
         }else{
-            throw new Error("Invalid Paper Type");
+            throw new InvalidPaperTypeException("Invalid Paper Type: " + paperType);
         }
     }
 
