@@ -1,13 +1,15 @@
 package org.example;
 
+import org.example.models.Issue;
+import org.example.models.Manager;
+import org.example.models.Operator;
+import org.example.models.PrintingMachine;
+import org.example.services.PrintingHouse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 class PrintingHouseTest {
 
